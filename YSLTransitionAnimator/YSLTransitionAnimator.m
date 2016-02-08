@@ -58,11 +58,12 @@
         
         [UIView animateWithDuration:duration animations:^{
             toViewController.view.alpha = 1.0;
+            imageSnapshot.alpha = 0.0;
             CGRect frame = [containerView convertRect:toTransitionImage.frame fromView:toViewController.view];
             frame.origin.y = _toViewControllerImagePointY;
             imageSnapshot.frame = frame;
             
-            imageSnapshot.transform = CGAffineTransformMakeScale(1.05, 1.05);
+            imageSnapshot.transform = CGAffineTransformMakeScale(1.0, 1.0);
         } completion:^(BOOL finished) {
             
             [UIView animateWithDuration:0.25 animations:^{

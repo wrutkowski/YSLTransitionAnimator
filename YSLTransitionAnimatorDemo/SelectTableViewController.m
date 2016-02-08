@@ -8,6 +8,7 @@
 
 #import "SelectTableViewController.h"
 #import "CollectionViewController.h"
+#import "CollectionUIViewViewController.h"
 #import "TableViewController.h"
 
 @interface SelectTableViewController ()
@@ -39,7 +40,7 @@ static NSString *cellIdentifier = @"SelectTableCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -54,7 +55,9 @@ static NSString *cellIdentifier = @"SelectTableCell";
             cell.textLabel.text = @"CollectionView";
             break;
         case 1:
-            
+            cell.textLabel.text = @"CollectionView with UIView";
+            break;
+        case 2:
             cell.textLabel.text = @"TableView";
             break;
         default:break;
@@ -73,6 +76,12 @@ static NSString *cellIdentifier = @"SelectTableCell";
         }
             break;
         case 1:
+        {
+            CollectionUIViewViewController *vc = [[CollectionUIViewViewController alloc]initWithNibName:@"CollectionUIViewViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 2:
         {
             TableViewController *vc = [[TableViewController alloc]initWithNibName:@"TableViewController" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
